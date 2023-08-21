@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p></p>
+
+  <script>
+    const myObject = {
+      property: 'Value!',
+      otherProperty: 77,
+      "obnoxious property": function () {
+        let x = document.querySelector("p")
+        x.textContent = "XD"
+      }
+    }
+
+    console.log(myObject.property)
+    //returns function
+    console.log(myObject["obnoxious property"])
+    //runs function
+    myObject["obnoxious property"]()
+
+
+    const varaible = 'property'
+    //returns undefined
+    console.log(myObject.varaible)
+    //returns properly
+    console.log(myObject[varaible])
+
+
+
+    // example one this is inferior
+    const playerOneName = "tim"
+    const playerTwoName = "jenn"
+    const playerOneMarker = "X"
+    const playerTwoMarker = "O"
+
+    // example two 
+    const playerOne = {
+      name: "tim",
+      marker: "X"
+    }
+
+    const playerTwo = {
+      name: "jenn",
+      marker: "O"
+    }
+
+    console.log(playerOne.name)
+
+
+    function printName(player) {
+      console.log(player.name)
+    }
+    printName(playerTwo)
+    function WinningName(player) {
+      console.log("Gad zooks!")
+      console.log(player.name + " is the wingding!")
+
+    }
+    printName(playerTwo)
+    WinningName(playerTwo)
+
+
+    function constructor(name, marker) {
+      this.name = name
+      this.maker = marker
+      this.sayName = function () {
+        console.log(`${name}, ${marker}`)
+      }
+    }
+    const player = new constructor('steve', 'X')
+    const player2 = new constructor('big momma', 'O')
+    console.log(player.name)
+    player.sayName()
+    player2.sayName()
+
+
+    function book(title, author, pages, read) {
+      this.title = title
+      this.author = author
+      this.pages = pages
+      this.read = read
+      this.info = function () {
+        return `${title}, by ${author}. ${pages} pages, ${read}`
+      }
+    }
+
+    const theHobbit = new book('The Hobbit', "J.R.R. Tolkien", 295, "Not read yet")
+
+    console.log(theHobbit.info())
+
+    console.log(Object.getPrototypeOf(player) === constructor.prototype) // returns true
+    constructor.prototype.sayHello = function () {
+      console.log("Hello, I'm a player!");
+    }
+    player.sayHello()
+    console.log(player.valueOf())
+
+    console.log(Object.prototype.hasOwnProperty('hasOwnProperty')); // true
+
+
+  </script>
+</body>
+
+</html>
