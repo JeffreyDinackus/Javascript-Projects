@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const name = "bill"
+    const age = "31"
+
+    console.log(name, age)
+    console.log({ name, age })
+
+    const personFactory = (name, age) => {
+      const sayHello = () => console.log("hello!")
+
+      return { name, age, sayHello };
+    }
+
+    const bill = personFactory(name, age);
+
+
+    bill.sayHello();
+    console.log(bill.name, bill.age)
+
+    const counterCreator = () => {
+      let count = 0;
+      return () => {
+        console.log(count);
+        count++;
+      };
+    };
+
+    const counter = counterCreator();
+
+    counter(); // 0
+    counter(); // 1
+    counter(); // 2
+    counter(); // 3
+
+
+    const person = (name) => {
+      const sayName = () => console.log(`Hi my name is ${name}`)
+
+
+
+      return { sayName };
+    }
+
+    const Nerd = (name) => {
+
+      const { sayName } = person(name);
+
+      const somethingNerdy = () => {
+        console.log("I AM A NERD")
+      }
+      return { sayName, somethingNerdy }
+    }
+
+    const jeff = Nerd("Jeff")
+
+    jeff.sayName()
+    jeff.somethingNerdy()
+  </script>
+</body>
+
+</html>
