@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="tictactoe.css">
+</head>
+
+<nav class="navbar bg-dark">
+  <form class="container-fluid justify-content-start">
+    <button class="btn btn-outline-success me-2" type="button">Tic Tac Toe</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button">Back to main website</button>
+  </form>
+</nav>
+
+<h1 class="text-center">Tic tac toe</h1>
+<div class="container">
+  <table class="board center">
+    <tr>
+      <td>
+        <h5 class="text-center">How to play:</h5>
+        <p class="text-center">The first person to click will be X, second is O.</p>
+        <p class="text-center">coordinate 0:0</p>
+      </td>
+      <td>
+        <p class="text-center">coordinate 1:0</p>
+      </td>
+      <td>
+        <p class="text-center">coordinate 2:0</p>
+      </td>
+      <td>
+        <p class="text-center">coordinate 3:0</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="text-center">coordinate 0:1</p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot1"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot2"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot3"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="text-center">coordinate 0:2</p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot4"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot5"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot6"></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p class="text-center">coordinate 0:3</p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot7"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot8"></p>
+      </td>
+      <td onclick="choose()">
+        <p class="spot" id="spot9"></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<body>
+  <script src="tictactoe.js">
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

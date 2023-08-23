@@ -58,9 +58,25 @@
       const somethingNerdy = () => {
         console.log("I AM A NERD")
       }
+
+
+
       return { sayName, somethingNerdy }
     }
 
+    const Nerd2 = (name) => {
+      const prototype = person(name);
+      const doSomethingNerdy = () => console.log('nerd stuff');
+      return Object.assign({}, prototype, { doSomethingNerdy });
+    }
+
+
+
+    const nerc = Nerd2("XD")
+
+    console.log(nerc.sayName())
+
+    console.log(nerc.doSomethingNerdy())
     const jeff = Nerd("Jeff")
 
     jeff.sayName()
