@@ -20,8 +20,8 @@ function test() {
   console.log(true)
 }
 
-function choose() {
-  console.log(true)
+function choose(number) {
+  console.log(true, number)
 }
 
 const player = (playerName, marker) => {
