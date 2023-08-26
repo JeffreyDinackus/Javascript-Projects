@@ -12,10 +12,26 @@
   <form class="container-fluid justify-content-start">
     <button class="btn btn-outline-success me-2" type="button">Tic Tac Toe</button>
     <button class="btn btn-sm btn-outline-secondary me-2" type="button">Back to main website</button>
-    <button class="btn btn-sm btn-outline-danger" type="button">Play vs Ai</button>
-
+    <button class="btn btn-sm btn-outline-warning me-2" onclick="playAI()" type="button">Play vs Ai easy</button>
+    <button class="btn btn-sm btn-outline-danger" onclick="playAIhard()" type="button">Play vs Ai hard</button>
   </form>
 </nav>
+
+<div id="popupContainer">
+  <div id="popupForm">
+    <div class="container">
+      <h2 class="my-3" id="winScreen">WINNER IS </h2>
+
+      <br><button class="btn btn-success m-5" onclick="playAgain()" id="closeFormButton">Play again?</button>
+      <br><button class="btn btn-danger m-5" onclick="playAIhard()" id="closeFormButton">Play again vs AI?
+        (hard)</button>
+      <br><button class="btn btn-warning m-5" onclick="playAI()" id="closeFormButton">Play again vs AI?
+        (easy)</button>
+    </div>
+  </div>
+</div>
+
+
 
 <h1 class="text-center">Tic tac toe</h1>
 <div class="container">
