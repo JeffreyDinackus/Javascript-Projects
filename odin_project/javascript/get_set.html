@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let user = {
+      first: "elon",
+      last: "musk",
+      name2: "bezos",
+
+      get fullname() {
+        console.log(this.first, this.last, this.name2)
+      },
+      set name(value) {
+        if (value.length < 4) {
+          console.log("Name is too short, need at least 4 characters");
+          return;
+        }
+        this.name2 = value;
+      }
+    }
+
+    user.fullname;
+    user.name = "a b  ";
+    user.fullname;
+
+
+    for (let key in user) {
+
+      console.log(key); // name, surname
+    }
+
+
+    function User(name, birthday) {
+      this.name = name;
+      this.birthday = birthday;
+
+      // age is calculated from the current date and birthday
+      Object.defineProperty(this, "age", {
+        get() {
+          let todayYear = new Date().getFullYear();
+          // console.log(todayYear)
+          // console.log(this.birthday.getFullYear())
+          return todayYear - this.birthday.getFullYear();
+        }
+      });
+    }
+    let Jose = new User("Jose", new Date(1992, 1, 1))
+
+
+
+    console.log(Jose.name, Jose.age)
+    console.log(Jose.birthday)
+    //neat code!
+  </script>
+</body>
+
+</html>
