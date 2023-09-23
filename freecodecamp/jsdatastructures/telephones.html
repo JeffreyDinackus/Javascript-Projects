@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>function telephoneCheck(str) {
+      let count = 0;
+      let split = str.split("")
+      let count2 = 0;
+      let flag2 = "";
+      let parenflag1 = "";
+      let parenflag2 = "";
+      for (let i = 0; i <= split.length; i += 1) {
+        if (split[i] >= '0' && split[i] <= '9') { count += 1; } if (split[i] == "*" ||
+          split[i] == "!" || split[i] == "#" || split[i] == "?" || split[0] == "-") { flag2 = true; }
+
+
+        if (split[i] == "-") {
+          count2 += 1;
+        }
+        if (split[i] == ")" && !(i == 1 || i == 2 || i == 0)) {
+
+        }
+        if (split[i] == "(") {
+          parenflag1 = true;
+        }
+        if (split[i] == ")") {
+          parenflag2 = true;
+        }
+
+        if (split[i] == "(" && i == 4 || i == 6 && i == ")") { return false; }
+      } if (flag2 == true) {
+        return false;
+      }
+      if (parenflag1 == false && parenflag2 == true || parenflag1 == true && parenflag2 == false) {
+        return false;
+      }
+      console.log(str, count)
+      if (count == 11 &&
+        split[0] == 1) { return true; } if (count2 > 2) {
+          return false;
+        }
+
+      if (split[split.length - 1] == ")") return false;
+
+      if (split[0] == 1 && count == 11 || count == 10) {
+
+        return true;
+      }
+
+
+      return false;
+    }
+    console.log(telephoneCheck("1 555)555-5555"));</script>
+</body>
+
+</html>
