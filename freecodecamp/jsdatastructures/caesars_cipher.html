@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>function rot13(str) {
+      let answer = "";
+      let charcode = "";
+
+
+      let prov = str.split("");
+
+      for (let i = 0; i <= prov.length; i++) {
+        if (prov[i] == " " || prov[i] == "." || prov[i] == "?" || prov[i] == "!") {
+          answer
+          += prov[i];
+        } else if (prov[i] <= "M") {
+          console.log(prov[i]); charcode = str.charCodeAt(i); charcode += 13; answer
+            += String.fromCharCode(charcode)
+        } else if (prov[i] > "M") {
+
+          charcode = str.charCodeAt(i);
+          charcode = charcode - 27 + 14;
+          answer += String.fromCharCode(charcode)
+
+        }
+      }
+      console.log(answer)
+
+
+      return answer;
+    }
+
+    console.log(rot13("M"));</script>
+</body>
+
+</html>
