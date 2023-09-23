@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function palindrome(str) {
+
+      let answer = str.split();
+      answer.reverse();
+      let final = str.split('').reverse().join('')
+      final = final.replace(/\s/g, '');
+      str = str.replace(/\s/g, '');
+
+
+
+      str = str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      final = final.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
+      str = str.toLowerCase()
+      final = final.toLowerCase()
+
+      console.log(final, str)
+      if (final == str) {
+        return true;
+      }
+
+
+      return false;
+    }
+
+    palindrome("My age is 0, 0 si ega ym.");
+
+  </script>
+</body>
+
+</html>
