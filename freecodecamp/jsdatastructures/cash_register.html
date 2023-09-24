@@ -166,7 +166,11 @@
 
     if (cid[8][1] == 0 && cid[7][1] == 0 && cid[6][1] == 0 && cid[5][1] == 0 && cid[4][1] == 0 && cid[3][1] == 0 && cid[2][1] == 0 && cid[1][1] == 0 && cid[0][1] < .01 && returned < .01) {
       closed2 = closed.reverse();
-      final = { status: "CLOSED", change: closed2 }
+      final = { status: "CLOSED", change: closed2 };
+
+      // if (closed2 == {status: "CLOSED", change: [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]]}){
+      //   console.log("X");
+      // }
 
     } else if (returned < .01) {
       final = { status: "OPEN", change: answer }
