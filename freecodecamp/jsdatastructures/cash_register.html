@@ -1,19 +1,182 @@
-function checkCashRegister(price, cash, cid) {
-let change;
+<!DOCTYPE html>
+<html lang="en">
 
-let returned = cash - price;
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
 
-console.log(cid[8]);
-let answer;
+<body>
+
+</body>
+
+</html>
+<script>function checkCashRegister(price, cash, cid) {
+    let change;
+
+    let returned = cash - price;
 
 
-while (returned > 100 && cid[8][1] >= 100){
-cid[8][1] -= 100;
-answer += [["ONE HUNDRED", 0]]
-answer += cid[8];
+    let answer = [];
+    let holding = [];
+    let holding2 = 0;
+    let final = [];
+    let closed = []
+    let closed2 = []
+    while (returned >= 100 && cid[8][1] >= 100) {
+      cid[8][1] -= 100;
+      returned -= 100;
+      holding2 += 100;
+    }
+    if (holding2 > 0) {
+      holding = ["ONE HUNDRED", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["ONE HUNDRED", "0"])
+    }
+    holding2 = 0;
 
-}
 
-if (cid < change){ return {status: "INSUFFICIENT_FUNDS" , change: []}; } return {status: "OPEN" , change: ["X"]}; }
-  checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90],
-  ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+    while (returned >= 20 && cid[7][1] >= 20) {
+      cid[7][1] -= 20;
+      returned -= 20;
+      holding2 += 20;
+    }
+    if (holding2 > 0) {
+      holding = ["TWENTY", holding2];
+
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["TWENTY", "0"])
+    }
+    holding2 = 0;
+
+    while (returned >= 10 && cid[6][1] >= 10) {
+      cid[6][1] -= 10;
+      returned -= 10;
+      holding2 += 10;
+    }
+    if (holding2 > 0) {
+      holding = ["TEN", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["TEN", "0"])
+    }
+    holding2 = 0;
+
+    while (returned >= 5 && cid[5][1] >= 5) {
+      cid[5][1] -= 5;
+      returned -= 5;
+      holding2 += 5;
+    }
+    if (holding2 > 0) {
+
+      holding = ["FIVE", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["FIVE", "0"])
+    }
+    holding2 = 0;
+
+
+    while (returned >= 1 && cid[4][1] >= 1) {
+      cid[4][1] -= 1;
+
+      returned -= 1;
+      holding2 += 1;
+    }
+    if (holding2 > 0) {
+
+      holding = ["ONE", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["ONE", "0"])
+    }
+    holding2 = 0;
+
+
+    while (returned >= .25 && cid[3][1] >= .25) {
+      cid[3][1] -= .25;
+      returned -= .25;
+      holding2 += .25;
+    }
+    if (holding2 > 0) {
+      holding = ["QUARTER", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["QUARTER", "0"])
+    }
+    holding2 = 0;
+
+
+    while (returned >= .1 && cid[2][1] >= .1) {
+      cid[2][1] -= .1;
+
+      returned -= .1;
+      holding2 += .1;
+    }
+    if (holding2 > 0) {
+
+      holding = ["DIME", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["DIME", "0"])
+    }
+    holding2 = 0;
+
+    while (returned >= .5 && cid[1][1] >= .5) {
+      cid[1][1] -= .5;
+
+      returned -= .5;
+      holding2 += .5;
+    }
+    if (holding2 > 0) {
+
+      holding = ["NICKEL", holding2];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["NICKEL", "0"])
+    }
+    holding2 = 0;
+    while (returned >= .01 && cid[0][1] >= .01) {
+      cid[0][1] -= .01;
+
+      returned -= .01.toFixed(2);
+      holding2 += .01;
+
+    }
+    if (holding2 > .01) {
+
+      holding = ["PENNY", (Math.round(holding2 * 100) / 100) + .01];
+      answer.push(holding);
+      closed.push(holding);
+    } else {
+      closed.push(["PENNY", "0"])
+    }
+    holding2 = 0;
+
+    if (cid[8][1] == 0 && cid[7][1] == 0 && cid[6][1] == 0 && cid[5][1] == 0 && cid[4][1] == 0 && cid[3][1] == 0 && cid[2][1] == 0 && cid[1][1] == 0 && cid[0][1] < .01 && returned < .01) {
+      closed2 = closed.reverse();
+      final = { status: "CLOSED", change: closed2 }
+
+    } else if (returned < .01) {
+      final = { status: "OPEN", change: answer }
+
+
+    } else {
+      final = { status: "INSUFFICIENT_FUNDS", change: [] }
+    }
+    console.log(closed)
+    return final;
+
+  }
+  checkCashRegister(19.5, 20, [["PENNY", 0.5], ["NICKEL", 0], ["DIME", 0], ["QUARTER", 0], ["ONE", 0], ["FIVE", 0], ["TEN", 0], ["TWENTY", 0], ["ONE HUNDRED", 0]])</script>
