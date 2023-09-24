@@ -1,8 +1,18 @@
 function checkCashRegister(price, cash, cid) {
 let change;
 
+let returned = cash - price;
+
+console.log(cid[8]);
+let answer;
 
 
+while (returned > 100 && cid[8][1] >= 100){
+cid[8][1] -= 100;
+answer += [["ONE HUNDRED", 0]]
+answer += cid[8];
+
+}
 
 if (cid < change){ return {status: "INSUFFICIENT_FUNDS" , change: []}; } return {status: "OPEN" , change: ["X"]}; }
   checkCashRegister(19.5, 20, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90],
